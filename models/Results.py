@@ -25,10 +25,11 @@ class Results(BaseModel):
     
     @classmethod 
     def insert_data(cls):
+        # antes de inserir dropar tabela para nao ficar duplicado
         dir_csv = 'dados/*.csv'
 
         arquivos_csv = glob.glob(dir_csv)
-        print(arquivos_csv)
+       # print(arquivos_csv)
 
         dados = []
         registros = []
@@ -37,7 +38,7 @@ class Results(BaseModel):
             dataset = pd.read_csv(arquivo_csv)
             dados.append(dataset)
 
-        print(dados)
+       # print(dados)
 
         for datasets in dados:
                 #print(datasets.info)
@@ -157,16 +158,19 @@ class Results(BaseModel):
             directory = 'dados_saida'
             file_name = os.path.join(directory, f'highway_{highway["highway"]}.csv')
             df.to_csv(file_name, index=False)
-
-    @classmethod    
+    @classmethod
     def encontrar_maior_incidencia(cls, item):
         query = Results.select(
             Results.km, 
-            fn.COUNT(Results.km).alias('incidencia')).where(Results.item == item
-            ).group_by(Results.km).order_by(fn.COUNT(Results.km).desc()).limit(1)
+            Results.highway,
+            fn.COUNT(Results.km).alias('incidencia')
+        ).where(Results.item == item).group_by(Results.km, Results.highway).order_by(fn.COUNT(Results.km).desc()).limit(1)
 
         resultado = query.get()
         km_maior_incidencia = resultado.km
         incidencia = resultado.incidencia
+        highway = resultado.highway
 
-        return km_maior_incidencia, incidencia
+        return km_maior_incidencia, incidencia, highway
+    def delete_results():
+        Results.delete().execute()
