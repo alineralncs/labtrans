@@ -28,9 +28,11 @@ export default {
         {{ item }}
       </li>
     -->
-    <div class="px-4 md:px-10 py-4 md:py-7">
-                <div class="flex items-center justify-between ">
-
+    <!-- <div class="px-4 md:px-10 py-4 md:py-7">
+                <div class="flex items-center justify-between "> -->
+        <div class="w-full max-w-screen-xl mx-auto px-6">
+        <div class="flex justify-center p-4 px-3 py-10">
+            <div class="w-full ">
     <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
     <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
         <thead class="text-xs text-gray-700 uppercase bg-blue-50 dark:bg-gray-700 dark:text-gray-400">
@@ -86,6 +88,7 @@ export default {
            
         </tbody>
     </table>
+</div>
 </div>
 </div>
 </div>
