@@ -1,6 +1,4 @@
 from peewee import (
-    SqliteDatabase,
-    Model, 
     TextField,
     IntegerField,
     DoubleField
@@ -9,12 +7,9 @@ import pandas as pd
 import glob
 from peewee import fn, JOIN
 import os
+from models.BaseModel import BaseModel
+from models.BaseModel import db
 
-db = SqliteDatabase('results.db')
-
-class BaseModel(Model):
-    class Meta:
-        database = db 
 
 class Results(BaseModel):
     name = TextField()
@@ -72,9 +67,9 @@ class Results(BaseModel):
             Results.highway,
             Results.km,
             fn.COUNT(Results.item).alias('buraco')
-        ).where(Results.item == 'buraco').group_by(Results.highway, Results.km)
+        ).where(Results.item == 'Buraco').group_by(Results.highway, Results.km)
 
-
+        print(sub_buraco)
         sub_remendo = Results.select(
             Results.highway,
             Results.km,

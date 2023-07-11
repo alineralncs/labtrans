@@ -3,7 +3,7 @@ from peewee import (
     DoubleField, 
     TextField
 )
-from models.Results import BaseModel
+from models.BaseModel import BaseModel
 from models.Results import Results
 
 class Videos(BaseModel):

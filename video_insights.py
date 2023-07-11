@@ -1,9 +1,8 @@
 from models.Results import Results
-from models.Results import db
-from models.Video import Video
-from models.Highways import Highway
-import subprocess
-import sys
+from models.BaseModel import db
+from models.Videos import Videos
+from models.Rodovias import Rodovias
+
 def display_menu():
     print("Menu:")
     print("1. Criar tabelas")
@@ -12,11 +11,12 @@ def display_menu():
     print("4. Consultar Incidência por KM")
     print("5. Ver videos")
     print("6. Ver rodovias")
-    print("7. Encerrar o programa")
+    print("7. Ver infos")
+    print("8. Encerrar o programa")
 
 def option1():
     print("Você selecionou a Opção 1 - Criar tabelas")
-    db.create_tables([Results, Video, Highway])
+    db.create_tables([Results, Videos, Rodovias])
 
 
 def option2():
@@ -36,20 +36,24 @@ def option4():
     print(f"O quilômetro com maior incidência de {item} é na rodovia {rodovia} e no km: {km_maior_incidencia}, com {incidencia} ocorrências.")
 def option5():
     print("Você selecionou a Opção 5 - Ver vídeos e seus kms ")
-    Video.delete_videos()
-    Video.create_videos()
-    Video.show_videos()
+    Videos.delete_videos()
+    Videos.create_videos()
+    Videos.show_videos()
 
 def option6():
     print("Você selecionou a Opção 6 - Ver rodovias e seus kms ")
-    Highway.delete_highways()
-    Highway.create_highway()
-    Highway.show_highways()
+    Rodovias.delete_highways()
+    Rodovias.create_highway()
+    Rodovias.show_highways()
+
+def option7():
+    print("Você selecionou a Opção 7 - Ver infos ")
+    Results.get_highway_info()
 
 def main():
     while True:
         display_menu()
-        choice = input("Digite sua escolha (1-7): ")
+        choice = input("Digite sua escolha (1-8): ")
 
         if choice == "1":
             option1()
@@ -64,6 +68,8 @@ def main():
         elif choice == "6":
             option6()
         elif choice == "7":
+            option7()
+        elif choice == "8":
             print("Encerrando o programa...")
             break
         else:
@@ -73,48 +79,6 @@ if __name__ == "__main__":
     main()
 
 
-# option1_selected = False
-# option2_selected = False
-# option3_selected = False
-# option4_selected = False
-
-# def option1():
-#     global option1_selected
-#     if not option1_selected:
-#         print("Você selecionou a Opção 1 - Criar tabelas")
-#         Results.create_table()
-#         option1_selected = True
-#     else:
-#         print("Opção 1 já foi selecionada anteriormente.")
-
-# def option2():
-#     global option2_selected
-#     if not option2_selected:
-#         print("Você selecionou a Opção 2 - Inserir dados do csv na tabela")
-#         Results.insert_data()
-#         option2_selected = True
-#     else:
-#         print("Opção 2 já foi selecionada anteriormente.")
-
-# def option3():
-#     global option3_selected
-#     if not option3_selected:
-#         print("Você selecionou a Opção 3 - Exportar dados csv")
-#         Results.export_csv()
-#         option3_selected = True
-#     else:
-#         print("Opção 3 já foi selecionada anteriormente.")
-
-# def option4():
-#     global option4_selected
-#     if not option4_selected:
-#         print("Você selecionou a Opção 4 - Consultar Incidência por KM")
-#         item = input("Qual item você quer verificar a incidência: ")
-#         km_maior_incidencia, incidencia = Results.encontrar_maior_incidencia(item)
-#         print(f"O quilômetro com maior incidência de {item} é: {km_maior_incidencia}, com {incidencia} ocorrências.")
-#         option4_selected = True
-#     else:
-#         print("Opção 4 já foi selecionada anteriormente.")
 
 
 
