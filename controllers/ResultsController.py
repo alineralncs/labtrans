@@ -4,5 +4,5 @@ from tornado.web import RequestHandler
 
 class ResultsController(RequestHandler):
     def get(self):
-        qs = Results.get_highway_info()
-        self.write(f"Video: {qs}")
+        qs = Results.select()
+        self.write(f"Resultados: {qs}")

@@ -6,12 +6,13 @@ from peewee import (
 from models.Results import BaseModel
 from models.Results import Results
 
-class Video(BaseModel):
+class Videos(BaseModel):
     video = TextField(unique=True)
     km_ini = DoubleField()
     km_final = DoubleField()
 
-    def create_videos():
+    @classmethod
+    def create_videos(cls):
         results = Results.select()
 
         video_data = {}
@@ -27,16 +28,18 @@ class Video(BaseModel):
                 video_data[video_name]['max_km'] = max(video_data[video_name]['max_km'], km)
         
         for video_name, data in video_data.items():
-            video = Video.create(video=video_name, km_ini=data['min_km'], km_final=data['max_km'])
+            video = Videos.create(video=video_name, km_ini=data['min_km'], km_final=data['max_km'])
 
-    def show_videos():
-        videos = Video.select()
+    @classmethod
+    def show_videos(clas):
+        videos = Videos.select()
         
         for video in videos:
             print(f"Nome do vídeo: {video.video}")
             print(f"Km inicial: {video.km_ini}")
             print(f"Km final: {video.km_final}")
             print("--------------------")
-    
-    def delete_videos():
-        Video.delete().execute()
+
+    @classmethod
+    def delete_videos(cls):
+        Videos.delete().execute()

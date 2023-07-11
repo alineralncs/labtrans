@@ -1,6 +1,7 @@
 from tornado.web import Application
 from controllers.ResultsCreateController import ResultsCreateController
 from controllers.ResultsExportController import ResultsExportController
+from controllers.ResultsController import ResultsController
 import tornado.ioloop
 
 

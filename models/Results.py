@@ -141,6 +141,7 @@ class Results(BaseModel):
                 row['drenagem'] = 0
             #print('a', row)
             md_results.append(row)
+        # para verificar se está no video correto ver em cada rodovia qual video ele pertence
         print(md_results)
         return md_results
     
@@ -159,7 +160,8 @@ class Results(BaseModel):
             file_name = os.path.join(directory, f'highway_{highway["highway"]}.csv')
             df.to_csv(file_name, index=False)
     @classmethod
-    def encontrar_maior_incidencia(cls, item):
+
+    def find_incidence(cls, item):
         query = Results.select(
             Results.km, 
             Results.highway,
@@ -172,5 +174,6 @@ class Results(BaseModel):
         highway = resultado.highway
 
         return km_maior_incidencia, incidencia, highway
-    def delete_results():
+    @classmethod
+    def delete_results(cls):
         Results.delete().execute()

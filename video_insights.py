@@ -16,9 +16,7 @@ def display_menu():
 
 def option1():
     print("Você selecionou a Opção 1 - Criar tabelas")
- 
-    Results.create_table()
-    db.create_tables([Video, Highway])
+    db.create_tables([Results, Video, Highway])
 
 
 def option2():
@@ -34,8 +32,8 @@ def option3():
 def option4():
     print("Você selecionou a Opção 4 - Consultar Incidência por KM ")
     item = input("Qual item você quer verificar a incidência: ")
-    km_maior_incidencia, incidencia, highway = Results.encontrar_maior_incidencia(item)
-    print(f"O quilômetro com maior incidência de {item} é na rodovia {highway} e no km: {km_maior_incidencia}, com {incidencia} ocorrências.")
+    km_maior_incidencia, incidencia, rodovia = Results.find_incidence(item)
+    print(f"O quilômetro com maior incidência de {item} é na rodovia {rodovia} e no km: {km_maior_incidencia}, com {incidencia} ocorrências.")
 def option5():
     print("Você selecionou a Opção 5 - Ver vídeos e seus kms ")
     Video.delete_videos()
