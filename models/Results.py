@@ -152,8 +152,9 @@ class Results(BaseModel):
             columns = ['highway', 'km', 'buraco', 'remendo', 'trinca', 'placa', 'drenagem']
             df = df[columns]
             directory = 'dados_saida'
-            file_name = os.path.join(directory, f'highway_{highway["highway"]}.csv')
+            file_name = os.path.join(directory, f'rodovia_{highway["highway"]}.csv')
             df.to_csv(file_name, index=False)
+            
     @classmethod
 
     def find_incidence(cls, item):
@@ -161,7 +162,9 @@ class Results(BaseModel):
             Results.km, 
             Results.highway,
             fn.COUNT(Results.km).alias('incidencia')
-        ).where(Results.item == item).group_by(Results.km, Results.highway).order_by(fn.COUNT(Results.km).desc()).limit(1)
+        ).where(Results.item == item
+        ).group_by(Results.km, Results.highway
+        ).order_by(fn.COUNT(Results.km).desc()).limit(1)
 
         resultado = query.get()
         km_maior_incidencia = resultado.km
@@ -169,6 +172,7 @@ class Results(BaseModel):
         highway = resultado.highway
 
         return km_maior_incidencia, incidencia, highway
+        
     @classmethod
     def delete_results(cls):
         Results.delete().execute()

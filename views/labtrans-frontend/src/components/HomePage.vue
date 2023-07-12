@@ -1,6 +1,4 @@
 <script setup>
-import Navbar from './Navbar.vue';
-
 
 </script>
 
@@ -8,17 +6,21 @@ import Navbar from './Navbar.vue';
 
       <div class="container px-6 py-16 mx-auto text-center">
         <div class="max-w-lg mx-auto">
-            <h1 class="text-3xl font-semibold text-gray-800 dark:text-white lg:text-4xl">Building Your Next App with our Awesome components</h1>
-            <p class="mt-6 text-gray-500 dark:text-gray-300">Lorem ipsum dolor sit, amet consectetur adipisicing elit. Libero similique
-                obcaecati illum mollitia.</p>
-            <button class="px-5 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-blue-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none">
-                Start 14-Day free trial
+            <h1 class="text-4xl font-semibold text-gray-800 lg:text-3xl">Segunda fase do processo seletivo LabTrans/UFSC para desenvolvedor back-end </h1>
+            <p class="mt-6 text-gray-500 ">Desafio desenvolvido por Aline Rose Alencar Santos</p>
+            <button class="px-5 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-violet-600 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none">
+               
+                <router-link to="/results"> Ver dados agrupados</router-link>
             </button>
-            <p class="mt-3 text-sm text-gray-400 ">No credit card required</p>
-        </div>
+          
 
+           
+        </div>
+        <button class="px-5 py-2 mt-3 text-sm font-medium leading-5 text-center text-violet-700 capitalize bg-gray-200 rounded-lg hover:bg-blue-500 lg:mx-0 lg:w-auto focus:outline-none">
+            <router-link to="/exportfiles"> Exportar dados</router-link>
+        </button>
         <div class="flex justify-center mt-10">
-            <img class="object-cover w-full h-96 rounded-xl lg:w-4/5" src="https://img.freepik.com/fotos-gratis/arvores-visto-da-estrada_1127-2136.jpg?w=1380&t=st=1689095025~exp=1689095625~hmac=5055f1bb5e77bb094f4e2003247e9c79c91f5a8e76899d10f98d170bb684e724" />
+            <img class="object-cover w-full h-96 rounded-xl lg:w-4/5" src="http://rodovias.org/wp-content/uploads/2018/03/rodovia-br-116-rs-2.jpg" />
         </div>
     </div>
 </template>

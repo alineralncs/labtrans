@@ -2,6 +2,7 @@ from tornado.web import Application
 from controllers.ResultsCreateController import ResultsCreateController
 from controllers.ResultsExportController import ResultsExportController
 from controllers.ResultsController import ResultsController
+from controllers.ResultsFileDownload import ResultsFileDownload
 from controllers.ResultsIncidenceController import ResultsIncidenceController
 import tornado.ioloop
 
@@ -9,7 +10,8 @@ import tornado.ioloop
 app = Application([
     (r"/results/", ResultsController),  
     (r"/results/create", ResultsCreateController),  
-    (r"/results/export", ResultsExportController),
+    (r"/results/files", ResultsExportController),
+    (r"/files/download/(.*)", ResultsFileDownload, {'directory': 'dados_saida'}),
     (r"/results/incidence/([\w\s]+)", ResultsIncidenceController)  # Rota para exportar dados
 ])
 

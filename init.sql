@@ -1,11 +1,11 @@
-CREATE TABLE Video (
+CREATE TABLE Videos (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   video TEXT UNIQUE,
   km_ini REAL,
   km_final REAL
 );
 
-CREATE TABLE Highway (
+CREATE TABLE Rodovias (
   id INTEGER PRIMARY KEY AUTOINCREMENT,
   rodovia INTEGER UNIQUE,
   km_ini REAL,

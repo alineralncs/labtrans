@@ -8,11 +8,11 @@
                     <div class="w-full mt-4">
                         <form class="form-horizontal w-3/4 mx-auto" @submit="submitForm">
                             <div class="flex flex-col mt-4">
-                                <input type="text" v-model="inputValue"  class="flex-grow h-8 px-2 border rounded border-grey-400" placeholder="Qual item deseja consultar?" />
+                                <input type="text" v-model="inputValue"  class="flex-grow rounded-full h-8 p-6 px-6  border border-grey-700 focus:border-blue-100" placeholder="Qual item deseja consultar?" />
                             </div>
                     
                             <div class="flex flex-col mt-8">
-                                <button type="submit" class="bg-blue-500 hover:bg-blue-700 text-white text-sm font-semibold py-2 px-4 rounded">Consultar</button>
+                                <button type="submit" class="bg-violet-500 hover:bg-violet-700 text-white text-sm font-semibold py-2 px-4 rounded-full">Consultar</button>
                              
                             </div>
                         </form>
@@ -20,7 +20,7 @@
                     </div>
                 </div>
             </div>
-            <div class="hidden md:block md:w-1/2 rounded-r-lg" 
+            <div class="block md:inline md:w-1/2 rounded-r-lg" 
             style="background: url('https://images.unsplash.com/photo-1566054299976-3eb6f6a44ead?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=687&q=80'); background-size: cover; background-position: center center;">
 
     <div class="flex justify-start cursor-pointer bg-slate-50 text-gray-700 hover:text-blue-400 hover:bg-blue-100 rounded-md px-2 py-2 my-2 m-10">
