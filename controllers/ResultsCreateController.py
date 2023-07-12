@@ -1,8 +1,7 @@
 from models.Results import Results
-from tornado.web import RequestHandler
-from tornado.httpclient import HTTPResponse 
+from controllers.BaseHandler import BaseHandler
 
-class ResultsCreateController(RequestHandler):
+class ResultsCreateController(BaseHandler):
     def post(self):
         Results.delete_results()
         Results.insert_data()

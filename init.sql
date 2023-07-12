@@ -20,3 +20,11 @@ CREATE TABLE Results (
   highway INTEGER,
   item TEXT
 );
+
+CREATE VIEW CombinedData AS
+SELECT Results.id, Results.name, Results.km, Results.distance, Rodovias.rodovia, Videos.video, Results.item
+FROM Results
+JOIN Rodovias ON Results.highway = Rodovias.id
+JOIN Videos ON Results.id = Videos.id;
+
+

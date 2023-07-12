@@ -16,25 +16,25 @@
 		</div>
 		<ul
 			class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
-			<li><a class="text-sm text-gray-400 hover:text-sky-500 hover:font-bold" href="#"> <router-link
+			<li><a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#"> <router-link
 						to="/">Home</router-link>
 				</a></li>
 			<li class="text-gray-300">
 
 			</li>
-			<li><a class="text-sm text-gray-400 hover:text-sky-500 hover:font-bold" href="#"><router-link
+			<li><a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#"><router-link
 						to="/results">Resultados</router-link></a></li>
 			<li class="text-gray-300">
 
 			</li>
-			<li><a class="text-sm text-gray-400 hover:text-sky-500 hover:font-bold" href="#">
+			<li><a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#">
 					<router-link to="/incidence">Consultar Incidência de Itens</router-link></a></li>
 			<li class="text-gray-300">
 
 			</li>
 		
 			<li>
-				<a class="text-sm text-gray-400 hover:text-sky-500 hover:font-bold" href="#">
+				<a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#">
 					<router-link to="/exportfiles">Exportar dados</router-link></a>
 			</li>
 

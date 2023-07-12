@@ -38,6 +38,7 @@ class Rodovias(BaseModel):
             print(f"Km inicial: {rodovia.km_ini}")
             print(f"Km final: {rodovia.km_final}")
             print("--------------------")
+        return rodovias
     @classmethod
     def delete_highways(cls):
         Rodovias.delete().execute()

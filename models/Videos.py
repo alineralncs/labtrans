@@ -39,6 +39,7 @@ class Videos(BaseModel):
             print(f"Km inicial: {video.km_ini}")
             print(f"Km final: {video.km_final}")
             print("--------------------")
+        return videos
 
     @classmethod
     def delete_videos(cls):
