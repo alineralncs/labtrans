@@ -3,7 +3,7 @@ import HomePage from '../views/HomePage.vue'
 
 import ResultsPage from '../views/ResultsPage.vue'
 
-import IncidencePage from '../views/IncidencePage.vue'
+import IncidencePage from '../components/IncidencePage.vue'
 
 import ExportDataPage from '../views/ExportDataPage.vue'
 

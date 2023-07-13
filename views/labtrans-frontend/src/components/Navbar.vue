@@ -1,3 +1,5 @@
+
+
 <template>
 	<nav class="relative px-4 py-4 flex justify-between items-center bg-white shadowm-xl rounded-lg">
 		<a class="text-xl text-sky-500 font-bold leading-none">
@@ -7,7 +9,7 @@
 			</svg>
 		</a>
 		<div class="lg:hidden">
-			<button class="navbar-burger flex items-center text-blue-600 p-3">
+			<button class="navbar-burger flex items-center text-blue-600 p-3" v-on:click="toggleMenu">
 				<svg class="block h-4 w-4 fill-current" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg">
 					<title>Mobile menu</title>
 					<path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"></path>
@@ -15,32 +17,17 @@
 			</button>
 		</div>
 		<ul
-			class="hidden absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6">
+			class=" absolute top-1/2 left-1/2 transform -translate-y-1/2 -translate-x-1/2 lg:mx-auto lg:flex lg:items-center lg:w-auto lg:space-x-6"  :class="{ 'hidden': isMenuHidden }">
 			<li><a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#"> <router-link
 						to="/">Home</router-link>
 				</a></li>
-			<!-- <li class="text-gray-300">
 
-			</li> -->
 			<li><a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#"><router-link
 						to="/results">Resultados</router-link></a></li>
-			<!-- <li class="text-gray-300">
-
-			</li> -->
-			<!-- <li><a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#">
-					<router-link to="/incidence">Consultar Incidência de Itens</router-link></a></li> -->
-			<!-- <li class="text-gray-300">
-
-			</li> -->
-		
 			<li>
 				<a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#">
 					<router-link to="/exportfiles">Exportar dados</router-link></a>
 			</li>
-			<!-- <li class="text-gray-300">
-
-			</li> -->
-
 			<li>
 				<a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#">
 					<router-link to="/videos">Videos</router-link></a>
@@ -62,3 +49,19 @@
 	</nav>
 	<router-view></router-view>
 </template>
+
+<script>
+export default {
+  data() {
+    return {
+      isMenuHidden: true
+    };
+  },
+  methods: {
+    toggleMenu() {
+		console.log('aq')
+		this.isMenuHidden = !this.isMenuHidden;
+    }
+  }
+}
+</script>

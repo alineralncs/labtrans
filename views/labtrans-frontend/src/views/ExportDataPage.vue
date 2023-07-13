@@ -29,7 +29,7 @@ export default {
 
 <template>
   <div>
- 
+
     <div class=" h-screen w-screen">
 
       <div class="flex flex-col items-center flex-1 h-full justify-center px-4 sm:px-0">
@@ -38,14 +38,16 @@ export default {
 
           <div class="w-full mt-4">
             <h1 class="mb-4 text-2xl font-normal md:text-3xl lg:text-4xl text-center">
-         <span class="font-semibold">Dados</span> em <span class="font-semibold">csv</span>
-      </h1>
-          <div v-if="files.length === 0">
-            <div class="flex justify-center">
-              <div class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-10 w-10 flex justify-start "></div>
+              <span class="font-semibold">Dados</span> em <span class="font-semibold">csv</span>
+            </h1>
+            <div v-if="files.length === 0">
+              <div class="flex justify-center">
+                <div
+                  class="loader ease-linear rounded-full border-4 border-t-4 border-gray-200 h-10 w-10 flex justify-start ">
+                </div>
 
+              </div>
             </div>
-        </div>
             <div
               class="flex justify-start cursor-pointer bg-slate-50 text-gray-700 hover:text-violet-400 hover:bg-violet-50 rounded-md px-2 py-2 my-2 m-10"
               v-for="file in files" :key="file">
@@ -53,7 +55,8 @@ export default {
               <span class="bg-green-400 h-2 w-2 m-2 rounded-full ">
               </span>
               <div class="flex-grow font-medium px-2"> {{ file }}</div>
-              <div class="text-sm font-normal text-gray-50 tracking-wide hover:text-white-100 hover:bg-violet-700 bg-violet-400 p-2 rounded-full ">
+              <div
+                class="text-sm font-normal text-gray-50 tracking-wide hover:text-white-100 hover:bg-violet-700 bg-violet-400 p-2 rounded-full ">
 
                 <a :href="getFileURL(file)" download>
                   Download

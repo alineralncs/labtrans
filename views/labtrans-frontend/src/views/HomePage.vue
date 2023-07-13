@@ -1,5 +1,5 @@
 <script setup>
-import IncidencePage from '../views/IncidencePage.vue'
+import IncidencePage from '../components/IncidencePage.vue'
 </script>
 
 <template>

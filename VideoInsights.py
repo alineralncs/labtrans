@@ -37,7 +37,6 @@ def option3():
 
 def option4():
     print("Você selecionou a Opção 6 - Ver resultado do agrupamento das rodovias ")
-
     results = ViewResults.get_highway_info()
     def display_results(results):
         table = PrettyTable()
