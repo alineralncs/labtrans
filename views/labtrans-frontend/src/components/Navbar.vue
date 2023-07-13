@@ -1,5 +1,5 @@
 <template>
-	<nav class="relative px-4 py-4 flex justify-between items-center bg-white">
+	<nav class="relative px-4 py-4 flex justify-between items-center bg-white shadowm-xl rounded-lg">
 		<a class="text-xl text-sky-500 font-bold leading-none">
 			<svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 576 512" fill="#64748b">
 				<path
@@ -19,23 +19,35 @@
 			<li><a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#"> <router-link
 						to="/">Home</router-link>
 				</a></li>
-			<li class="text-gray-300">
+			<!-- <li class="text-gray-300">
 
-			</li>
+			</li> -->
 			<li><a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#"><router-link
 						to="/results">Resultados</router-link></a></li>
-			<li class="text-gray-300">
+			<!-- <li class="text-gray-300">
 
-			</li>
-			<li><a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#">
-					<router-link to="/incidence">Consultar Incidência de Itens</router-link></a></li>
-			<li class="text-gray-300">
+			</li> -->
+			<!-- <li><a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#">
+					<router-link to="/incidence">Consultar Incidência de Itens</router-link></a></li> -->
+			<!-- <li class="text-gray-300">
 
-			</li>
+			</li> -->
 		
 			<li>
 				<a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#">
 					<router-link to="/exportfiles">Exportar dados</router-link></a>
+			</li>
+			<!-- <li class="text-gray-300">
+
+			</li> -->
+
+			<li>
+				<a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#">
+					<router-link to="/videos">Videos</router-link></a>
+			</li>
+			<li>
+				<a class="text-sm text-gray-400 hover:text-violet-500 hover:font-bold" href="#">
+					<router-link to="/rodovias">Rodovias</router-link></a>
 			</li>
 
 		</ul>

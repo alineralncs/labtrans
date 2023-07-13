@@ -5,12 +5,15 @@ from peewee import (
 )
 from models.BaseModel import BaseModel
 from models.Results import Results
+from prettytable import PrettyTable
 
 class Rodovias(BaseModel):
     rodovia = IntegerField(unique=True)
     km_ini = DoubleField()
     km_final = DoubleField()
-    
+    class Meta:
+        table_name = 'rodovias'
+
     @classmethod
     def create_highway(cls):
         results = Results.select()
@@ -33,11 +36,13 @@ class Rodovias(BaseModel):
     @classmethod
     def show_highways(cls):
         rodovias = Rodovias.select()
+        table = PrettyTable()
+        table.field_names = ["Rodovia", "Km Inicial", "Km Final"]
+
         for rodovia in rodovias:
-            print(f"Rodovia: {rodovia.rodovia}")
-            print(f"Km inicial: {rodovia.km_ini}")
-            print(f"Km final: {rodovia.km_final}")
-            print("--------------------")
+            table.add_row([rodovia.rodovia, rodovia.km_ini, rodovia.km_final])
+
+        print(table)
         return rodovias
     @classmethod
     def delete_highways(cls):

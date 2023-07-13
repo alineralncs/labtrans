@@ -4,8 +4,8 @@ import json
 
 class VideosController(BaseHandler):
     def get(self):
-        Videos.delete_videos()
-        Videos.create_videos()
+        # Videos.delete_videos()
+        # Videos.create_videos()
         show_videos = Videos.show_videos()
         dict_videos = []
         

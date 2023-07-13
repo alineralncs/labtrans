@@ -4,8 +4,8 @@ import json
 
 class RodoviasController(BaseHandler):
     def get(self):
-        Rodovias.delete_highways()
-        Rodovias.create_highway()
+        # Rodovias.delete_highways()
+        # Rodovias.create_highway()
         show_highways = Rodovias.show_highways()
         dict_highway = []
         

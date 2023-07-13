@@ -5,11 +5,15 @@ from peewee import (
 )
 from models.BaseModel import BaseModel
 from models.Results import Results
+from prettytable import PrettyTable
 
 class Videos(BaseModel):
     video = TextField(unique=True)
     km_ini = DoubleField()
     km_final = DoubleField()
+
+    class Meta:
+        table_name = 'videos'
 
     @classmethod
     def create_videos(cls):
@@ -34,11 +38,13 @@ class Videos(BaseModel):
     def show_videos(clas):
         videos = Videos.select()
         
+        table = PrettyTable()
+        table.field_names = ["Video", "Km Inicial", "Km Final"]
+
         for video in videos:
-            print(f"Nome do vídeo: {video.video}")
-            print(f"Km inicial: {video.km_ini}")
-            print(f"Km final: {video.km_final}")
-            print("--------------------")
+            table.add_row([video.video, video.km_ini, video.km_final])
+
+        print(table)
         return videos
 
     @classmethod

@@ -1,11 +1,11 @@
 from models.Results import Results
 from controllers.BaseHandler import BaseHandler
 import json
-
+from models.ViewResults import ViewResults
 
 class ResultsController(BaseHandler):
     def get(self):
-        qs = Results.get_highway_info()
+        qs = ViewResults.get_highway_info()
         dict_videos = {}
 
         # dict_videos['rodovia'] = qs.highway

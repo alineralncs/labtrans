@@ -10,7 +10,6 @@ import os
 from models.BaseModel import BaseModel
 from models.BaseModel import db
 
-
 class Results(BaseModel):
     name = TextField()
     km = DoubleField()
@@ -18,9 +17,11 @@ class Results(BaseModel):
     highway = IntegerField()
     item = TextField()
     
+    class Meta:
+        table_name = 'results'
+
     @classmethod 
     def insert_data(cls):
-        # antes de inserir dropar tabela para nao ficar duplicado
         dir_csv = 'dados/*.csv'
 
         arquivos_csv = glob.glob(dir_csv)
@@ -58,7 +59,7 @@ class Results(BaseModel):
             print("Erro durante a inserção dos registros:", str(e))
 
         tamanho_depois = Results.select().count()
-        print("Tamanho dos dados após a inserção:", tamanho_depois)
+        print("Totale de registros inseridos:", tamanho_depois)
 
 
     @classmethod
@@ -69,7 +70,7 @@ class Results(BaseModel):
             fn.COUNT(Results.item).alias('buraco')
         ).where(Results.item == 'Buraco').group_by(Results.highway, Results.km)
 
-        print(sub_buraco)
+        #print(sub_buraco)
         sub_remendo = Results.select(
             Results.highway,
             Results.km,
@@ -137,7 +138,7 @@ class Results(BaseModel):
             #print('a', row)
             md_results.append(row)
         # para verificar se está no video correto ver em cada rodovia qual video ele pertence
-        print(md_results)
+        #print(md_results)
         return md_results
     
     @classmethod    
@@ -156,7 +157,6 @@ class Results(BaseModel):
             df.to_csv(file_name, index=False)
             
     @classmethod
-
     def find_incidence(cls, item):
         query = Results.select(
             Results.km, 
@@ -176,3 +176,5 @@ class Results(BaseModel):
     @classmethod
     def delete_results(cls):
         Results.delete().execute()
+
+   

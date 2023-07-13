@@ -21,10 +21,14 @@ CREATE TABLE Results (
   item TEXT
 );
 
-CREATE VIEW CombinedData AS
-SELECT Results.id, Results.name, Results.km, Results.distance, Rodovias.rodovia, Videos.video, Results.item
-FROM Results
-JOIN Rodovias ON Results.highway = Rodovias.id
-JOIN Videos ON Results.id = Videos.id;
+CREATE VIEW ViewVideos AS
+SELECT id, video, km_ini, km_final
+FROM Videos;
 
+CREATE VIEW ViewRodovias AS
+SELECT id, rodovia, km_ini, km_final
+FROM Rodovias;
 
+CREATE VIEW ViewResults AS
+SELECT id, name, km, distance, highway, item
+FROM Results;
