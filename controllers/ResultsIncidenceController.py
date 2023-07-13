@@ -1,4 +1,4 @@
-from models.Results import Results
+from models.ViewResults import ViewResults
 from controllers.BaseHandler import BaseHandler
 import json
 
@@ -6,7 +6,7 @@ import json
 class ResultsIncidenceController(BaseHandler):
     def get(self, item ):
         print("Você selecionou a Opção 4 - Consultar Incidência por KM ")
-        km_maior_incidencia, incidencia, rodovia = Results.find_incidence(item)
+        km_maior_incidencia, incidencia, rodovia = ViewResults.find_incidence(item)
         print(f"O quilômetro com maior incidência de {item} é na rodovia {rodovia} e no km: {km_maior_incidencia}, com {incidencia} ocorrências.")
         response_data = {
             "km_maior_incidencia": km_maior_incidencia,

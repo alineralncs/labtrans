@@ -112,4 +112,20 @@ class ViewResults(BaseModel):
         # para verificar se está no video correto ver em cada rodovia qual video ele pertence
         #print(md_results)
         return md_results
+    @classmethod
+    def find_incidence(cls, item):
+        query = ViewResults.select(
+            ViewResults.km, 
+            ViewResults.highway,
+            fn.COUNT(ViewResults.km).alias('incidencia')
+        ).where(ViewResults.item == item
+        ).group_by(ViewResults.km, ViewResults.highway
+        ).order_by(fn.COUNT(ViewResults.km).desc()).limit(1)
 
+        resultado = query.get()
+        km_maior_incidencia = resultado.km
+        incidencia = resultado.incidencia
+        highway = resultado.highway
+
+
+        return km_maior_incidencia, incidencia, highway

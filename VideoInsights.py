@@ -30,13 +30,16 @@ def option2():
     Videos.create_videos()
     Rodovias.delete_highways()
     Rodovias.create_highway()
+    print('Tabelas populadas com sucesso!')
+
 
 def option3():
     print("Você selecionou a Opção 3 - Exportar dados csv ")
     Results.export_csv()
+    print('Dados Exportados com sucesso!')
 
 def option4():
-    print("Você selecionou a Opção 6 - Ver resultado do agrupamento das rodovias ")
+    print("Você selecionou a Opção 4 - Ver resultado do agrupamento das rodovias ")
     results = ViewResults.get_highway_info()
     def display_results(results):
         table = PrettyTable()
@@ -49,18 +52,17 @@ def option4():
     display_results(results)
 
 def option5():
-    print("Você selecionou a Opção 4 - Consultar Incidência por KM ")
+    print("Você selecionou a Opção 5 - Consultar Incidência por KM ")
     item = input("Qual item você quer verificar a incidência: ")
-    km_maior_incidencia, incidencia, rodovia = Results.find_incidence(item)
+    km_maior_incidencia, incidencia, rodovia = ViewResults.find_incidence(item)
     print(f"O quilômetro com maior incidência de {item} é na rodovia {rodovia} e no km: {km_maior_incidencia}, com {incidencia} ocorrências.")
     
 def option6():
-    print("Você selecionou a Opção 5 - Ver vídeos e seus kms ")
-
+    print("Você selecionou a Opção 6 - Ver vídeos e seus kms ")
     Videos.show_videos()
 
 def option7():
-    print("Você selecionou a Opção 6 - Ver rodovias e seus kms ")
+    print("Você selecionou a Opção 7 - Ver rodovias e seus kms ")
     Rodovias.show_highways()
 
 def main():
