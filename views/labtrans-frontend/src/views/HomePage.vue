@@ -6,8 +6,8 @@ import IncidencePage from '../components/IncidencePage.vue'
 
       <div class="container px-6 py-16 mx-auto text-center">
         <div class="max-w-lg mx-auto">
-            <h1 class="text-4xl font-semibold text-gray-800 lg:text-3xl">Segunda fase do processo seletivo LabTrans/UFSC para desenvolvedor back-end </h1>
-            <p class="mt-6 text-gray-500 ">Desafio desenvolvido por Aline Rose Alencar Santos</p>
+            <h1 class="text-4xl font-semibold text-gray-800 lg:text-3xl">Solução integrada para gerenciar dados coletados de rodovias</h1>
+            <p class="mt-6 text-gray-500 ">Desenvolvido por Aline Rose Alencar Santos</p>
             <button class="px-5 py-2 mt-6 text-sm font-medium leading-5 text-center text-white capitalize bg-violet-600 rounded-lg hover:bg-violet-500 lg:mx-0 lg:w-auto focus:outline-none">
                 <router-link to="/results"> Ver dados agrupados</router-link>
             </button>
